@@ -1,6 +1,7 @@
 import {useMemo} from 'react';
 import { useSelector } from 'react-redux';
 import {List} from './Contacts.styled';
+import {getContacts} from "../../redux/selectors"
 import ConactCard from "components/ConactCard/ConactCard";
 import PropTypes from 'prop-types';
 
@@ -8,7 +9,7 @@ import PropTypes from 'prop-types';
 
 export default function Contacts({removeConactApp}){
     
-    const {items, filter }= useSelector(store => store.contacts);
+    const {items, filter }= useSelector(getContacts);
     const normalizeTodos = filter.toLowerCase();
     
     const visibleContacts = items.filter(contact => contact.name.toLowerCase().includes(normalizeTodos));

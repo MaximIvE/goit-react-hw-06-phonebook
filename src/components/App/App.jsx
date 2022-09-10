@@ -8,6 +8,7 @@ import Contacts from '../Contacts/Contacts';
 import Filter from 'components/Filter/Filter';
 import Settings from 'components/Settings';
 import langContext from 'langContext';
+import {getContacts} from "../../redux/selectors";
 import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
@@ -15,7 +16,7 @@ import { addItem, removeItem } from 'redux/actions';
 
 const  App = () => {
 
-  const { items } = useSelector(store => store.contacts);
+  const { items } = useSelector(getContacts);
 
   // const [contacts] = useState(()=>localContacts('contacts'));
   //Відмальовування активної мови відбувається в Langaguge, а цей стейт потрібен для контексту
